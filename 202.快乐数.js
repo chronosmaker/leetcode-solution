@@ -5,10 +5,6 @@
  */
 
 // @lc code=start
-/**
- * @param {number} n
- * @return {boolean}
- */
 var getNext = function (n) {
   let ret = 0;
   //   while (n) {
@@ -22,6 +18,10 @@ var getNext = function (n) {
   return ret;
 };
 
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
 var isHappy = function (n) {
   if (n === 1) return true;
   let slow = n;
