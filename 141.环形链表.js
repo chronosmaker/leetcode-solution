@@ -18,32 +18,20 @@
  * @return {boolean}
  */
 var hasCycle = function (head) {
-  if (!head) {
-    return false;
-  }
+  if (!head) return false;
   let slow = head;
   let fast = head.next;
-  while (fast && fast !== slow) {
+  while (fast !== slow && fast && fast.next) {
     slow = slow.next;
-    fast = fast.next;
-    if (!fast) {
-      return false;
-    }
-    fast = fast.next;
+    fast = fast.next.next;
   }
-  if (fast === slow) {
-    return true;
-  }
-  return false;
+  return !!fast && !!fast.next;
 };
 // var hasCycle = function (head) {
 //   const temp = new Set();
 //   while (!!head) {
-//     if (temp.has(head.next)) {
-//       return true;
-//     } else {
-//       temp.add(head);
-//     }
+//     if (temp.has(head.next)) return true;
+//     temp.add(head);
 //     head = head.next;
 //   }
 //   return false;
