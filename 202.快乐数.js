@@ -23,18 +23,13 @@ var getNext = function (n) {
 };
 
 var isHappy = function (n) {
-  if (n === 1) {
-    return true;
-  }
+  if (n === 1) return true;
   let slow = n;
-  let fast = getNext(n);
-  while (fast !== 1 && fast !== slow) {
+  let fast = n;
+  do {
     slow = getNext(slow);
     fast = getNext(getNext(fast));
-  }
-  if (fast === slow) {
-    return false;
-  }
-  return true;
+  } while (fast !== slow && fast !== 1);
+  return fast === 1;
 };
 // @lc code=end
