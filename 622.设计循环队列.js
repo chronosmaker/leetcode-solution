@@ -33,7 +33,6 @@ MyCircularQueue.prototype.enQueue = function (value) {
  */
 MyCircularQueue.prototype.deQueue = function () {
   if (this.isEmpty()) return false;
-  this.arr[this.head] = null;
   this.cnt--;
   this.head = (this.head + 1) % this.size;
   return true;
